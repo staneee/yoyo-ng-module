@@ -1,4 +1,3 @@
-import { AbpHttpInterceptor } from './abpHttpInterceptor';
 export { AbpModule } from './abp.module';
 export { AbpUserConfigurationService } from './abp-user-configuration.service';
 export { PermissionCheckerService } from './auth/permission-checker.service';

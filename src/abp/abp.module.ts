@@ -16,7 +16,6 @@ import { UtilsService } from './utils/utils.service';
 @NgModule({
     declarations: [
     ],
-
     providers: [
         AbpSessionService,
         PermissionCheckerService,

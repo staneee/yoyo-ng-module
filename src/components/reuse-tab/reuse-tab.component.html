@@ -1,0 +1,21 @@
+<ng-template #icon let-i>
+  <ng-container *ngIf="i" [ngSwitch]="i.type">
+    <i *ngSwitchCase="'icon'" class="sidebar-nav__item-icon" nz-icon [type]="i.value" [theme]="i.theme" [spin]="i.spin"
+      [twoToneColor]="i.twoToneColor" [iconfont]="i.iconfont"></i>
+    <img *ngSwitchCase="'img'" src="{{ i.value }}" class="sidebar-nav__item-icon sidebar-nav__item-img">
+    <i *ngSwitchDefault class="sidebar-nav__item-icon {{ i.value }}"></i>
+  </ng-container>
+</ng-template>
+
+<nz-tabset [nzSelectedIndex]="pos" [nzAnimated]="false" nzType="line">
+  <nz-tab *ngFor="let i of list; let index = index" [nzTitle]="titleTemplate">
+    <ng-template #titleTemplate>
+      <span [reuse-tab-context-menu]="i" (click)="to($event, index)" class="name">
+        <ng-template [ngTemplateOutlet]="icon" [ngTemplateOutletContext]="{$implicit: i.icon}"></ng-template>
+        {{i.title}}
+      </span>
+      <i *ngIf="i.closable" nz-icon type="close" class="reuse-tab__op" (click)="_close($event, index, false)"></i>
+    </ng-template>
+  </nz-tab>
+</nz-tabset>
+<reuse-tab-context (change)="cmChange($event)"></reuse-tab-context>

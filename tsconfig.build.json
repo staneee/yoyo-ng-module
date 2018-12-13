@@ -10,7 +10,7 @@
     "stripInternal": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "experimentalDecorators": true,
+    "experimentalDecorators": false,
     "emitDecoratorMetadata": true,
     "sourceMap": true,
     "inlineSources": true,
